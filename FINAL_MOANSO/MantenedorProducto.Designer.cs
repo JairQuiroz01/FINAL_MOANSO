@@ -34,9 +34,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cbUnidadMedida = new System.Windows.Forms.ComboBox();
-            this.cbPresentacion = new System.Windows.Forms.ComboBox();
-            this.cbCategoria = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -45,6 +42,9 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtBuscar = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
+            this.cbPresentacion = new System.Windows.Forms.ComboBox();
+            this.cbUnidadMedida = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -69,7 +69,6 @@
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
-
             // 
             // btnModificar
             // 
@@ -79,7 +78,6 @@
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
-
             // 
             // btnEliminar
             // 
@@ -89,7 +87,6 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-
             // 
             // btnCancelar
             // 
@@ -99,7 +96,6 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-
             // 
             // groupBox1
             // 
@@ -116,37 +112,10 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos del Producto:";
             // 
-            // cbUnidadMedida
-            // 
-            this.cbUnidadMedida.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbUnidadMedida.FormattingEnabled = true;
-            this.cbUnidadMedida.Location = new System.Drawing.Point(166, 93);
-            this.cbUnidadMedida.Name = "cbUnidadMedida";
-            this.cbUnidadMedida.Size = new System.Drawing.Size(171, 24);
-            this.cbUnidadMedida.TabIndex = 5;
-            // 
-            // cbPresentacion
-            // 
-            this.cbPresentacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPresentacion.FormattingEnabled = true;
-            this.cbPresentacion.Location = new System.Drawing.Point(166, 59);
-            this.cbPresentacion.Name = "cbPresentacion";
-            this.cbPresentacion.Size = new System.Drawing.Size(171, 24);
-            this.cbPresentacion.TabIndex = 4;
-            // 
-            // cbCategoria
-            // 
-            this.cbCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCategoria.FormattingEnabled = true;
-            this.cbCategoria.Location = new System.Drawing.Point(166, 20);
-            this.cbCategoria.Name = "cbCategoria";
-            this.cbCategoria.Size = new System.Drawing.Size(171, 24);
-            this.cbCategoria.TabIndex = 3;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 96);
+            this.label3.Location = new System.Drawing.Point(21, 115);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(125, 16);
             this.label3.TabIndex = 2;
@@ -155,7 +124,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 62);
+            this.label2.Location = new System.Drawing.Point(21, 80);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(89, 16);
             this.label2.TabIndex = 1;
@@ -164,7 +133,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 28);
+            this.label1.Location = new System.Drawing.Point(21, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(69, 16);
             this.label1.TabIndex = 0;
@@ -201,7 +170,6 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
-
             // 
             // txtBuscar
             // 
@@ -219,6 +187,30 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Buscar:";
             // 
+            // cbCategoria
+            // 
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(163, 28);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(163, 24);
+            this.cbCategoria.TabIndex = 3;
+            // 
+            // cbPresentacion
+            // 
+            this.cbPresentacion.FormattingEnabled = true;
+            this.cbPresentacion.Location = new System.Drawing.Point(163, 72);
+            this.cbPresentacion.Name = "cbPresentacion";
+            this.cbPresentacion.Size = new System.Drawing.Size(163, 24);
+            this.cbPresentacion.TabIndex = 4;
+            // 
+            // cbUnidadMedida
+            // 
+            this.cbUnidadMedida.FormattingEnabled = true;
+            this.cbUnidadMedida.Location = new System.Drawing.Point(163, 115);
+            this.cbUnidadMedida.Name = "cbUnidadMedida";
+            this.cbUnidadMedida.Size = new System.Drawing.Size(163, 24);
+            this.cbUnidadMedida.TabIndex = 5;
+            // 
             // MantenedorProducto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -230,7 +222,7 @@
             this.Controls.Add(this.dgvProductos);
             this.Name = "MantenedorProducto";
             this.Text = "Agregar";
-
+            this.Load += new System.EventHandler(this.MantenedorProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -251,15 +243,15 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cbUnidadMedida;
-        private System.Windows.Forms.ComboBox cbPresentacion;
-        private System.Windows.Forms.ComboBox cbCategoria;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.TextBox txtBuscar;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cbUnidadMedida;
+        private System.Windows.Forms.ComboBox cbPresentacion;
+        private System.Windows.Forms.ComboBox cbCategoria;
     }
 }
 

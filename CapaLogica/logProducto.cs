@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
 using CapaEntidad;
+using CapaLogica;
 
 
 namespace CapaLogica
@@ -45,3 +46,4 @@ namespace CapaLogica
         }
     }
 }
+  
