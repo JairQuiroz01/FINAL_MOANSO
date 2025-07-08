@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CapaEntidad;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -96,5 +97,6 @@ namespace CapaDatos
             finally { cmd.Connection.Close(); }
             return elimina;
         }
+
     }
 }
