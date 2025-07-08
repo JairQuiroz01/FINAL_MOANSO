@@ -15,12 +15,20 @@ namespace FINAL_MOANSO
         public MantenedorPresentacionProduc()
         {
             InitializeComponent();
+            dgvPresentacion.CellDoubleClick += dgvPresentacion_CellDoubleClick; // Asignación del evento
             CargarPresentaciones();
         }
 
         private void CargarPresentaciones()
         {
-            dgvPresentacion.DataSource = logPresentacionProducto.Instancia.Listar();
+            try
+            {
+                dgvPresentacion.DataSource = logPresentacionProducto.Instancia.Listar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al cargar datos: " + ex.Message);
+            }
         }
 
         private void btnSeleccionarImagen_Click(object sender, EventArgs e)
@@ -37,33 +45,47 @@ namespace FINAL_MOANSO
 
         private void btnRegistrar_Click(object sender, EventArgs e)
         {
-            EntPresentacionProducto obj = new EntPresentacionProducto
+            try
             {
-                Nombre = txtNombre.Text,
-                Descripcion = txtDescripcion.Text
-            };
+                EntPresentacionProducto obj = new EntPresentacionProducto
+                {
+                    Nombre = txtNombre.Text.Trim(),
+                    Descripcion = txtDescripcion.Text.Trim()
+                };
 
-            logPresentacionProducto.Instancia.Registrar(obj);
-            MessageBox.Show("Presentación registrada con éxito");
-            CargarPresentaciones();
-            LimpiarCampos();
+                logPresentacionProducto.Instancia.Registrar(obj);
+                MessageBox.Show("Presentación registrada con éxito");
+                CargarPresentaciones();
+                LimpiarCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al registrar: " + ex.Message);
+            }
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
             if (dgvPresentacion.SelectedRows.Count > 0)
             {
-                EntPresentacionProducto obj = new EntPresentacionProducto
+                try
                 {
-                    PresentacionProductoID = Convert.ToInt32(dgvPresentacion.CurrentRow.Cells["PresentacionProductoID"].Value),
-                    Nombre = txtNombre.Text,
-                    Descripcion = txtDescripcion.Text
-                };
+                    EntPresentacionProducto obj = new EntPresentacionProducto
+                    {
+                        PresentacionProductoID = Convert.ToInt32(dgvPresentacion.CurrentRow.Cells["PresentacionProductoID"].Value),
+                        Nombre = txtNombre.Text.Trim(),
+                        Descripcion = txtDescripcion.Text.Trim()
+                    };
 
-                logPresentacionProducto.Instancia.Modificar(obj);
-                MessageBox.Show("Presentación modificada con éxito");
-                CargarPresentaciones();
-                LimpiarCampos();
+                    logPresentacionProducto.Instancia.Modificar(obj);
+                    MessageBox.Show("Presentación modificada con éxito");
+                    CargarPresentaciones();
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al modificar: " + ex.Message);
+                }
             }
             else
             {
@@ -75,11 +97,18 @@ namespace FINAL_MOANSO
         {
             if (dgvPresentacion.SelectedRows.Count > 0)
             {
-                int id = Convert.ToInt32(dgvPresentacion.CurrentRow.Cells["PresentacionProductoID"].Value);
-                logPresentacionProducto.Instancia.Eliminar(id);
-                MessageBox.Show("Presentación eliminada");
-                CargarPresentaciones();
-                LimpiarCampos();
+                try
+                {
+                    int id = Convert.ToInt32(dgvPresentacion.CurrentRow.Cells["PresentacionProductoID"].Value);
+                    logPresentacionProducto.Instancia.Eliminar(id);
+                    MessageBox.Show("Presentación eliminada");
+                    CargarPresentaciones();
+                    LimpiarCampos();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al eliminar: " + ex.Message);
+                }
             }
             else
             {
@@ -91,10 +120,17 @@ namespace FINAL_MOANSO
         {
             if (e.RowIndex >= 0)
             {
-                txtNombre.Text = dgvPresentacion.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-                txtDescripcion.Text = dgvPresentacion.Rows[e.RowIndex].Cells["Descripcion"].Value.ToString();
-                picImagen.Image = null;
-                rutaImagenSeleccionada = "";
+                try
+                {
+                    txtNombre.Text = dgvPresentacion.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+                    txtDescripcion.Text = dgvPresentacion.Rows[e.RowIndex].Cells["Descripcion"].Value.ToString();
+                    picImagen.Image = null;
+                    rutaImagenSeleccionada = "";
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al seleccionar: " + ex.Message);
+                }
             }
         }
 
