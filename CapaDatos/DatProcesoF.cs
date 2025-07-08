@@ -112,7 +112,7 @@ namespace CapaDatos
             var lista = new List<EntProcesoF>();
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Procesofisico WHERE EstadoProcesoFisico = 1", cn);
+                SqlCommand cmd = new SqlCommand("SELECT ProcesofisicoID, Nombre FROM Procesofisico WHERE EstadoProcesoFisico = 1", cn);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -120,9 +120,7 @@ namespace CapaDatos
                     lista.Add(new EntProcesoF
                     {
                         ProcesofisicoID = (int)dr["ProcesofisicoID"],
-                        Nombre = dr["Nombre"].ToString(),
-                        Duracion = dr["Duracion"].ToString(),
-                        EstadoProcesoFisico = (bool)dr["EstadoProcesoFisico"]
+                        Nombre = dr["Nombre"].ToString()
                     });
                 }
             }

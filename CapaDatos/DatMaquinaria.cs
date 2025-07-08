@@ -112,7 +112,7 @@ namespace CapaDatos
             var lista = new List<EntMaquinaria>();
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT * FROM Maquinaria WHERE EstadoMaquinaria = 1", cn);
+                SqlCommand cmd = new SqlCommand("SELECT MaquinariaID, Nombre FROM Maquinaria WHERE EstadoMaquinaria = 1", cn);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -120,9 +120,7 @@ namespace CapaDatos
                     lista.Add(new EntMaquinaria
                     {
                         MaquinariaID = (int)dr["MaquinariaID"],
-                        Nombre = dr["Nombre"].ToString(),
-                        Marca = dr["Marca"].ToString(),
-                        EstadoMaquinaria = (bool)dr["EstadoMaquinaria"]
+                        Nombre = dr["Nombre"].ToString()
                     });
                 }
             }
