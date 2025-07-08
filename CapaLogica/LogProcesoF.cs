@@ -45,5 +45,9 @@ namespace CapaLogica
                 throw new Exception("ID inválido para buscar.");
             return DatProcesoF.Instancia.BuscarProcesoFisicoPorID(id);
         }
+        public List<EntProcesoF> ListarProcesosActivos()
+        {
+            return DatProcesoF.Instancia.ListarProcesosActivos();
+        }
     }
 }

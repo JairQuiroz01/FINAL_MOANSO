@@ -106,5 +106,25 @@ namespace CapaDatos
             }
             return lista;
         }
+        // En DatMaquinaria.cs
+        public List<EntMaquinaria> ListarMaquinarias()
+        {
+            var lista = new List<EntMaquinaria>();
+            using (SqlConnection cn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("SELECT MaquinariaID, Nombre FROM Maquinaria WHERE EstadoMaquinaria = 1", cn);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    lista.Add(new EntMaquinaria
+                    {
+                        MaquinariaID = (int)dr["MaquinariaID"],
+                        Nombre = dr["Nombre"].ToString()
+                    });
+                }
+            }
+            return lista;
+        }
     }
 }

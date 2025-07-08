@@ -22,7 +22,11 @@ namespace CapaLogica
 
         public List<EntMaquinariaProcesoFisico> Listar()
         {
-            return DatMaquinariaProcesoFisico.Instancia.Listar();
+            return DatMaquinariaProcesoFisico.Instancia.ListarVinculos();
+        }
+        public void EliminarVinculo(int maquinariaID, int procesoFisicoID)
+        {
+            DatMaquinariaProcesoFisico.Instancia.EliminarVinculo(maquinariaID, procesoFisicoID);
         }
     }
 }

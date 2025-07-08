@@ -34,7 +34,7 @@ namespace CapaDatos
         }
 
         // Listar todas las vinculaciones
-        public List<EntMaquinariaProcesoFisico> Listar()
+        public List<EntMaquinariaProcesoFisico> ListarVinculos()
         {
             List<EntMaquinariaProcesoFisico> lista = new List<EntMaquinariaProcesoFisico>();
 
@@ -61,5 +61,19 @@ namespace CapaDatos
 
             return lista;
         }
+        public void EliminarVinculo(int maquinariaID, int procesoFisicoID)
+        {
+            using (SqlConnection cn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("EliminarVinculoMaquinariaProceso", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@MaquinariaID", maquinariaID);
+                cmd.Parameters.AddWithValue("@ProcesofisicoID", procesoFisicoID);
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }
