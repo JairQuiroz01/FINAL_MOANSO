@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Conexion.cs" />
     <Compile Include="DatMaquinaria.cs" />
+    <Compile Include="DatMaquinariaProcesoFisico.cs" />
     <Compile Include="DatProcesoF.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
