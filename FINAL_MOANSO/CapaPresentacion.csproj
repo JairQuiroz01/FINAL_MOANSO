@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="MantenedorMaquinariaProcesoFisico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenedorMaquinariaProcesoFisico.Designer.cs">
+      <DependentUpon>MantenedorMaquinariaProcesoFisico.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenedorProducto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MantenedorMaquinaria.resx">
       <DependentUpon>MantenedorMaquinaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenedorMaquinariaProcesoFisico.resx">
+      <DependentUpon>MantenedorMaquinariaProcesoFisico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MantenedorProcesoFisico.resx">
       <DependentUpon>MantenedorProcesoFisico.cs</DependentUpon>

@@ -14,9 +14,9 @@ namespace CapaDatos
         private static readonly DatMaquinaria instancia = new DatMaquinaria();
         public static DatMaquinaria Instancia => instancia;
 
-        private readonly string connectionString = "TU_CONEXION";
+        private readonly string connectionString = "JUNITHOR";
 
-        public void Registrar(EntMaquinaria m)
+        public void RegistrarMaquinaria(EntMaquinaria m)
         {
             using (var cn = new SqlConnection(connectionString))
             using (var cmd = new SqlCommand("RegistrarMaquinaria", cn))
@@ -30,7 +30,7 @@ namespace CapaDatos
             }
         }
 
-        public void Modificar(EntMaquinaria m)
+        public void ModificarMaquinaria(EntMaquinaria m)
         {
             using (var cn = new SqlConnection(connectionString))
             using (var cmd = new SqlCommand("ModificarMaquinaria", cn))
@@ -45,7 +45,7 @@ namespace CapaDatos
             }
         }
 
-        public void Inhabilitar(int id)
+        public void InhabilitarMaquinaria(int id)
         {
             using (var cn = new SqlConnection(connectionString))
             using (var cmd = new SqlCommand("InhabilitarMaquinaria", cn))
@@ -57,7 +57,7 @@ namespace CapaDatos
             }
         }
 
-        public EntMaquinaria BuscarPorID(int id)
+        public EntMaquinaria BuscarMaquinariaPorID(int id)
         {
             using (var cn = new SqlConnection(connectionString))
             using (var cmd = new SqlCommand("BuscarMaquinariaPorID", cn))
@@ -82,7 +82,7 @@ namespace CapaDatos
             return null;
         }
 
-        public List<EntMaquinaria> Listar()
+        public List<EntMaquinaria> ListarMaquinaria()
         {
             var lista = new List<EntMaquinaria>();
             using (var cn = new SqlConnection(connectionString))

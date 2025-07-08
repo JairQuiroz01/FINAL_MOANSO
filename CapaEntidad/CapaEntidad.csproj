@@ -44,6 +44,7 @@
     <Compile Include="Class1.cs" />
     <Compile Include="entCategoriaProducto.cs" />
     <Compile Include="EntMaquinaria.cs" />
+    <Compile Include="EntMaquinariaProcesoFisico.cs" />
     <Compile Include="EntProcesoF.cs" />
     <Compile Include="entUnidadMedida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

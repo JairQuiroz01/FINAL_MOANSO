@@ -44,6 +44,7 @@
     <Compile Include="Conexion.cs" />
     <Compile Include="datCategoriaProducto.cs" />
     <Compile Include="DatMaquinaria.cs" />
+    <Compile Include="DatMaquinariaProcesoFisico.cs" />
     <Compile Include="DatProcesoF.cs" />
     <Compile Include="datUnidadMedida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
