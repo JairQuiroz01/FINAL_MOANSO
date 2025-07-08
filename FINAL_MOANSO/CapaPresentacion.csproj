@@ -93,6 +93,15 @@
     <EmbeddedResource Include="MantenedorCategoriaProducto.resx">
       <DependentUpon>MantenedorCategoriaProducto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MantenedorMaquinaria.resx">
+      <DependentUpon>MantenedorMaquinaria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenedorProcesoFisico.resx">
+      <DependentUpon>MantenedorProcesoFisico.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MantenedorUnidadMedida.resx">
+      <DependentUpon>MantenedorUnidadMedida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
