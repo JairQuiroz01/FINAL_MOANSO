@@ -45,6 +45,7 @@
     <Compile Include="datCategoriaProducto.cs" />
     <Compile Include="DatMaquinaria.cs" />
     <Compile Include="DatProcesoF.cs" />
+    <Compile Include="datProducto.cs" />
     <Compile Include="datUnidadMedida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
