@@ -14,7 +14,7 @@ namespace CapaDatos
         private static readonly DatMaquinaria instancia = new DatMaquinaria();
         public static DatMaquinaria Instancia => instancia;
 
-        private readonly string connectionString = "JUNITHOR";
+        private string connectionString = "Data Source=DESKTOP-7GTF2SO.;Initial Catalog=BD_SISTEMA_VINERIA_AR_1;Integrated Security=True;";
 
         public void RegistrarMaquinaria(EntMaquinaria m)
         {
@@ -107,12 +107,12 @@ namespace CapaDatos
             return lista;
         }
         // En DatMaquinaria.cs
-        public List<EntMaquinaria> ListarMaquinarias()
+        public List<EntMaquinaria> ListarMaquinariaActiva()
         {
             var lista = new List<EntMaquinaria>();
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT MaquinariaID, Nombre FROM Maquinaria WHERE EstadoMaquinaria = 1", cn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Maquinaria WHERE EstadoMaquinaria = 1", cn);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -120,7 +120,9 @@ namespace CapaDatos
                     lista.Add(new EntMaquinaria
                     {
                         MaquinariaID = (int)dr["MaquinariaID"],
-                        Nombre = dr["Nombre"].ToString()
+                        Nombre = dr["Nombre"].ToString(),
+                        Marca = dr["Marca"].ToString(),
+                        EstadoMaquinaria = (bool)dr["EstadoMaquinaria"]
                     });
                 }
             }

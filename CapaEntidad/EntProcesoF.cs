@@ -9,8 +9,10 @@ namespace CapaEntidad
     public class EntProcesoF
     {
         public int ProcesofisicoID { get; set; }
+        public int MaquinariaID { get; set; }
         public string Nombre { get; set; }
         public string Duracion { get; set; }
         public bool EstadoProcesoFisico { get; set; }
     }
+
 }

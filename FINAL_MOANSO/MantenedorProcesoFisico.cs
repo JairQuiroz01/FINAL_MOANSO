@@ -42,7 +42,7 @@ namespace FINAL_MOANSO
             txtNombre.Clear();
             cbDuracion.SelectedIndex = 0;
             chkEstado.Checked = false;
-            txtProcesoFisico.Clear();
+            txtHerramienta.Clear();
             txtMarca.Clear();
             txtEstadoMaquinaria.Clear();
             txtBuscarId.Clear();
@@ -54,7 +54,7 @@ namespace FINAL_MOANSO
             {
                 EntProcesoF entidad = new EntProcesoF
                 {
-                    ProcesofisicoID = int.Parse(txtProcesoFisico.Text),
+                    MaquinariaID = int.Parse(txtHerramienta.Text),
                     Nombre = txtNombre.Text,
                     Duracion = cbDuracion.Text,
                     EstadoProcesoFisico = chkEstado.Checked
@@ -151,7 +151,7 @@ namespace FINAL_MOANSO
 
                 if (proceso != null)
                 {
-                    txtProcesoFisico.Text = proceso.ProcesofisicoID.ToString();
+                    txtHerramienta.Text = proceso.ProcesofisicoID.ToString();
                     txtNombre.Text = proceso.Nombre;
                     cbDuracion.Text = proceso.Duracion;
                     chkEstado.Checked = proceso.EstadoProcesoFisico;

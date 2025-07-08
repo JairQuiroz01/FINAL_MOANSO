@@ -73,6 +73,7 @@
             this.btnAceptar.TabIndex = 9;
             this.btnAceptar.Text = "Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
             // 
             // lblNombre
             // 
@@ -148,6 +149,7 @@
             this.dgvMaquinaria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvMaquinaria.Size = new System.Drawing.Size(645, 220);
             this.dgvMaquinaria.TabIndex = 10;
+            this.dgvMaquinaria.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMaquinaria_CellContentClick);
             // 
             // label1
             // 
@@ -168,11 +170,12 @@
             // 
             // btnBuscarPorId
             // 
-            this.btnBuscarPorId.Location = new System.Drawing.Point(251, 1);
+            this.btnBuscarPorId.Location = new System.Drawing.Point(252, 5);
             this.btnBuscarPorId.Name = "btnBuscarPorId";
             this.btnBuscarPorId.Size = new System.Drawing.Size(80, 25);
             this.btnBuscarPorId.TabIndex = 13;
             this.btnBuscarPorId.Text = "Buscar";
+            this.btnBuscarPorId.Click += new System.EventHandler(this.btnBuscarPorId_Click);
             // 
             // btnListar
             // 
@@ -182,6 +185,7 @@
             this.btnListar.Size = new System.Drawing.Size(87, 40);
             this.btnListar.TabIndex = 14;
             this.btnListar.Text = "Listar";
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // MantenedorMaquinaria
             // 

@@ -53,12 +53,16 @@ namespace CapaLogica
         }
 
         // BUSCAR POR ID
-        public EntMaquinaria BuscarMaquinariaID(int id)
+        public EntMaquinaria BuscarMaquinariaPorID(int id)
         {
             if (id <= 0)
                 throw new Exception("ID inválido.");
 
             return dat.BuscarMaquinariaPorID(id);
+        }
+        public List<EntMaquinaria> ListarMaquinariaActiva()
+        {
+            return DatMaquinaria.Instancia.ListarMaquinariaActiva();
         }
     }
 }

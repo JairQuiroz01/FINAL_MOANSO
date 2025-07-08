@@ -28,29 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.cmbMaquinariaID = new System.Windows.Forms.ComboBox();
-            this.cmbProcesoFisicoID = new System.Windows.Forms.ComboBox();
+            this.cmbMaquinaria = new System.Windows.Forms.ComboBox();
+            this.cmbProcesoFisico = new System.Windows.Forms.ComboBox();
             this.btnVincular = new System.Windows.Forms.Button();
             this.dgvVinculos = new System.Windows.Forms.DataGridView();
             this.btnEliminarVinculo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvVinculos)).BeginInit();
             this.SuspendLayout();
             // 
-            // cmbMaquinariaID
+            // cmbMaquinaria
             // 
-            this.cmbMaquinariaID.FormattingEnabled = true;
-            this.cmbMaquinariaID.Location = new System.Drawing.Point(66, 100);
-            this.cmbMaquinariaID.Name = "cmbMaquinariaID";
-            this.cmbMaquinariaID.Size = new System.Drawing.Size(121, 21);
-            this.cmbMaquinariaID.TabIndex = 0;
+            this.cmbMaquinaria.FormattingEnabled = true;
+            this.cmbMaquinaria.Location = new System.Drawing.Point(66, 100);
+            this.cmbMaquinaria.Name = "cmbMaquinaria";
+            this.cmbMaquinaria.Size = new System.Drawing.Size(121, 21);
+            this.cmbMaquinaria.TabIndex = 0;
             // 
-            // cmbProcesoFisicoID
+            // cmbProcesoFisico
             // 
-            this.cmbProcesoFisicoID.FormattingEnabled = true;
-            this.cmbProcesoFisicoID.Location = new System.Drawing.Point(574, 100);
-            this.cmbProcesoFisicoID.Name = "cmbProcesoFisicoID";
-            this.cmbProcesoFisicoID.Size = new System.Drawing.Size(119, 21);
-            this.cmbProcesoFisicoID.TabIndex = 1;
+            this.cmbProcesoFisico.FormattingEnabled = true;
+            this.cmbProcesoFisico.Location = new System.Drawing.Point(574, 100);
+            this.cmbProcesoFisico.Name = "cmbProcesoFisico";
+            this.cmbProcesoFisico.Size = new System.Drawing.Size(119, 21);
+            this.cmbProcesoFisico.TabIndex = 1;
             // 
             // btnVincular
             // 
@@ -89,8 +89,8 @@
             this.Controls.Add(this.btnEliminarVinculo);
             this.Controls.Add(this.dgvVinculos);
             this.Controls.Add(this.btnVincular);
-            this.Controls.Add(this.cmbProcesoFisicoID);
-            this.Controls.Add(this.cmbMaquinariaID);
+            this.Controls.Add(this.cmbProcesoFisico);
+            this.Controls.Add(this.cmbMaquinaria);
             this.Name = "MantenedorMaquinariaProcesoFisico";
             this.Text = "MantenedorMaquinariaProcesoFisico";
             ((System.ComponentModel.ISupportInitialize)(this.dgvVinculos)).EndInit();
@@ -100,8 +100,8 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox cmbMaquinariaID;
-        private System.Windows.Forms.ComboBox cmbProcesoFisicoID;
+        private System.Windows.Forms.ComboBox cmbMaquinaria;
+        private System.Windows.Forms.ComboBox cmbProcesoFisico;
         private System.Windows.Forms.Button btnVincular;
         private System.Windows.Forms.DataGridView dgvVinculos;
         private System.Windows.Forms.Button btnEliminarVinculo;

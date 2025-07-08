@@ -14,8 +14,7 @@ namespace CapaDatos
         private static readonly DatMaquinariaProcesoFisico _instancia = new DatMaquinariaProcesoFisico();
         public static DatMaquinariaProcesoFisico Instancia => _instancia;
 
-        private string connectionString = "JUNITHOR";  // ⚠️ Ajusta tu cadena
-
+        private string connectionString = "Data Source=DESKTOP-7GTF2SO.;Initial Catalog=BD_SISTEMA_VINERIA_AR_1;Integrated Security=True;";
         private DatMaquinariaProcesoFisico() { }
 
         // Vincular
@@ -23,11 +22,9 @@ namespace CapaDatos
         {
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("VincularMaquinariaProcesoFisico", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("INSERT INTO MaquinariaProcesoFisico (MaquinariaID, ProcesofisicoID) VALUES (@MaquinariaID, @ProcesoFisicoID)", cn);
                 cmd.Parameters.AddWithValue("@MaquinariaID", maquinariaID);
-                cmd.Parameters.AddWithValue("@ProcesofisicoID", procesoFisicoID);
-
+                cmd.Parameters.AddWithValue("@ProcesoFisicoID", procesoFisicoID);
                 cn.Open();
                 cmd.ExecuteNonQuery();
             }
@@ -36,13 +33,10 @@ namespace CapaDatos
         // Listar todas las vinculaciones
         public List<EntMaquinariaProcesoFisico> ListarVinculos()
         {
-            List<EntMaquinariaProcesoFisico> lista = new List<EntMaquinariaProcesoFisico>();
-
+            var lista = new List<EntMaquinariaProcesoFisico>();
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("ListarMaquinariaProcesoFisico", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
+                SqlCommand cmd = new SqlCommand("SELECT * FROM MaquinariaProcesoFisico", cn);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -50,26 +44,19 @@ namespace CapaDatos
                     lista.Add(new EntMaquinariaProcesoFisico
                     {
                         MaquinariaID = (int)dr["MaquinariaID"],
-                        NombreMaquinaria = dr["NombreMaquinaria"].ToString(),
-                        Marca = dr["Marca"].ToString(),
-                        ProcesofisicoID = (int)dr["ProcesofisicoID"],
-                        NombreProceso = dr["NombreProceso"].ToString(),
-                        Duracion = dr["Duracion"].ToString()
+                        ProcesofisicoID = (int)dr["ProcesofisicoID"]
                     });
                 }
             }
-
             return lista;
         }
         public void EliminarVinculo(int maquinariaID, int procesoFisicoID)
         {
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("EliminarVinculoMaquinariaProceso", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
+                SqlCommand cmd = new SqlCommand("DELETE FROM MaquinariaProcesoFisico WHERE MaquinariaID=@MaquinariaID AND ProcesofisicoID=@ProcesoFisicoID", cn);
                 cmd.Parameters.AddWithValue("@MaquinariaID", maquinariaID);
-                cmd.Parameters.AddWithValue("@ProcesofisicoID", procesoFisicoID);
-
+                cmd.Parameters.AddWithValue("@ProcesoFisicoID", procesoFisicoID);
                 cn.Open();
                 cmd.ExecuteNonQuery();
             }
