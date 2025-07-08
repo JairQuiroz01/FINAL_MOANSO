@@ -52,6 +52,12 @@
     <Compile Include="MantenedorMaquinariaProcesoFisico.Designer.cs">
       <DependentUpon>MantenedorMaquinariaProcesoFisico.cs</DependentUpon>
     </Compile>
+    <Compile Include="MantenedorProduccion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MantenedorProduccion.Designer.cs">
+      <DependentUpon>MantenedorProduccion.cs</DependentUpon>
+    </Compile>
     <Compile Include="MantenedorProducto.cs">
       <SubType>Form</SubType>
     </Compile>

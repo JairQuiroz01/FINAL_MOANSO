@@ -47,6 +47,7 @@
     <Compile Include="EntMaquinariaProcesoFisico.cs" />
     <Compile Include="EntPresentacionProducto.cs" />
     <Compile Include="EntProcesoF.cs" />
+    <Compile Include="EntProduccion.cs" />
     <Compile Include="entProducto.cs" />
     <Compile Include="entUnidadMedida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

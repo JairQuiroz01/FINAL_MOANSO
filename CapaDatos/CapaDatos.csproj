@@ -47,6 +47,7 @@
     <Compile Include="DatMaquinariaProcesoFisico.cs" />
     <Compile Include="datPresentacionProducto.cs" />
     <Compile Include="DatProcesoF.cs" />
+    <Compile Include="datProduccion.cs" />
     <Compile Include="datProducto.cs" />
     <Compile Include="datUnidadMedida.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
