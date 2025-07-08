@@ -14,8 +14,7 @@ namespace CapaDatos
         private static readonly DatMaquinariaProcesoFisico _instancia = new DatMaquinariaProcesoFisico();
         public static DatMaquinariaProcesoFisico Instancia => _instancia;
 
-        private string connectionString = "JUNITHOR";  // ⚠️ Ajusta tu cadena
-
+        private string connectionString = "JUNITHOR";  
         private DatMaquinariaProcesoFisico() { }
 
         // Vincular
