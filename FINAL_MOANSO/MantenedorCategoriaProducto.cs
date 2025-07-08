@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaLogica;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +17,99 @@ namespace FINAL_MOANSO
         public MantenedorCategoriaProducto()
         {
             InitializeComponent();
+            listarCategoria();
+            txtID.Enabled = false; // Solo lectura
+        }
+
+        private void listarCategoria()
+        {
+            dgvCategoria.DataSource = logCategoriaProducto.Instancia.Listar();
+        }
+
+        private void True(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void limpiarCampos()
+        {
+            txtID.Text = "";
+            txtNombre.Text = "";
+            txtDescripcion.Text = "";  // RichTextBox
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entCategoriaProducto cat = new entCategoriaProducto
+                {
+                    Nombre = txtNombre.Text.Trim(),
+                    Descripcion = txtDescripcion.Text.Trim()  // RichTextBox
+                };
+
+                logCategoriaProducto.Instancia.Insertar(cat);
+                MessageBox.Show("¡Categoría agregada correctamente!");
+                listarCategoria();
+                limpiarCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al agregar: " + ex.Message);
+            }
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entCategoriaProducto cat = new entCategoriaProducto
+                {
+                    CategoriaProductoID = int.Parse(txtID.Text),
+                    Nombre = txtNombre.Text.Trim(),
+                    Descripcion = txtDescripcion.Text.Trim()  // RichTextBox
+                };
+
+                logCategoriaProducto.Instancia.Editar(cat);
+                MessageBox.Show("¡Categoría modificada correctamente!");
+                listarCategoria();
+                limpiarCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al modificar: " + ex.Message);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int id = int.Parse(txtID.Text);
+                logCategoriaProducto.Instancia.Eliminar(id);
+                MessageBox.Show("¡Categoría eliminada correctamente!");
+                listarCategoria();
+                limpiarCampos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al eliminar: " + ex.Message);
+            }
+        }
+
+        private void dgvCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow fila = dgvCategoria.Rows[e.RowIndex];
+                txtID.Text = fila.Cells["CategoriaProductoID"].Value.ToString();
+                txtNombre.Text = fila.Cells["Nombre"].Value.ToString();
+                txtDescripcion.Text = fila.Cells["Descripcion"].Value.ToString();
+            }
         }
     }
 }
