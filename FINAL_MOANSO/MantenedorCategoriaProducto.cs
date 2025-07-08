@@ -46,10 +46,24 @@ namespace FINAL_MOANSO
         {
             try
             {
+                // Validación de campos vacíos
+                if (string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    MessageBox.Show("Por favor, ingresa un nombre.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+                {
+                    MessageBox.Show("Por favor, ingresa una descripción.");
+                    return;
+                }
+
+                // Crear objeto entidad y enviar a la lógica
                 entCategoriaProducto cat = new entCategoriaProducto
                 {
                     Nombre = txtNombre.Text.Trim(),
-                    Descripcion = txtDescripcion.Text.Trim()  // RichTextBox
+                    Descripcion = txtDescripcion.Text.Trim()
                 };
 
                 logCategoriaProducto.Instancia.Insertar(cat);
@@ -67,11 +81,32 @@ namespace FINAL_MOANSO
         {
             try
             {
+                // Validación de selección
+                if (string.IsNullOrWhiteSpace(txtID.Text))
+                {
+                    MessageBox.Show("Primero selecciona una categoría para modificar.");
+                    return;
+                }
+
+                // Validación de campos vacíos
+                if (string.IsNullOrWhiteSpace(txtNombre.Text))
+                {
+                    MessageBox.Show("Por favor, ingresa un nombre.");
+                    return;
+                }
+
+                if (string.IsNullOrWhiteSpace(txtDescripcion.Text))
+                {
+                    MessageBox.Show("Por favor, ingresa una descripción.");
+                    return;
+                }
+
+                // Preparar entidad y actualizar
                 entCategoriaProducto cat = new entCategoriaProducto
                 {
                     CategoriaProductoID = int.Parse(txtID.Text),
                     Nombre = txtNombre.Text.Trim(),
-                    Descripcion = txtDescripcion.Text.Trim()  // RichTextBox
+                    Descripcion = txtDescripcion.Text.Trim()
                 };
 
                 logCategoriaProducto.Instancia.Editar(cat);
@@ -89,6 +124,12 @@ namespace FINAL_MOANSO
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(txtID.Text))
+                {
+                    MessageBox.Show("Selecciona una categoría para eliminar.");
+                    return;
+                }
+
                 int id = int.Parse(txtID.Text);
                 logCategoriaProducto.Instancia.Eliminar(id);
                 MessageBox.Show("¡Categoría eliminada correctamente!");
