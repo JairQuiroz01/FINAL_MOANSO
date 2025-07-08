@@ -44,18 +44,6 @@ namespace CapaLogica
         {
             return datProducto.Instancia.Buscar(filtro);
         }
-        private void CargarCombos()
-        {
-            // CATEGORÍA
-            cbCategoria.DataSource = logCategoriaProducto.Instancia.Listar();
-            cbCategoria.DisplayMember = "Nombre";
-            cbCategoria.ValueMember = "CategoriaproductoID";
-
-
-            // UNIDAD DE MEDIDA
-            cbUnidadMedida.DataSource = logUnidadMedida.Instancia.Listar();
-            cbUnidadMedida.DisplayMember = "Nombre";
-            cbUnidadMedida.ValueMember = "UnidadmedidaID";
-        }
     }
 }
+  
