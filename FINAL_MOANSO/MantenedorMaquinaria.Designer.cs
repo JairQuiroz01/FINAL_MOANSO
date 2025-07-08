@@ -38,13 +38,13 @@
             this.btnRegistrarHV = new System.Windows.Forms.Button();
             this.btnModificarHV = new System.Windows.Forms.Button();
             this.btnInhabilitarHV = new System.Windows.Forms.Button();
-            this.dgvHerramienta = new System.Windows.Forms.DataGridView();
+            this.dgvMaquinaria = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.txtBuscaPorId = new System.Windows.Forms.TextBox();
             this.btnBuscarPorId = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
             this.gbHV.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHerramienta)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaquinaria)).BeginInit();
             this.SuspendLayout();
             // 
             // gbHV
@@ -119,6 +119,7 @@
             this.btnRegistrarHV.Size = new System.Drawing.Size(100, 35);
             this.btnRegistrarHV.TabIndex = 5;
             this.btnRegistrarHV.Text = "Registrar";
+            this.btnRegistrarHV.Click += new System.EventHandler(this.btnRegistrarHV_Click);
             // 
             // btnModificarHV
             // 
@@ -127,6 +128,7 @@
             this.btnModificarHV.Size = new System.Drawing.Size(100, 35);
             this.btnModificarHV.TabIndex = 6;
             this.btnModificarHV.Text = "Modificar";
+            this.btnModificarHV.Click += new System.EventHandler(this.btnModificarHV_Click);
             // 
             // btnInhabilitarHV
             // 
@@ -136,16 +138,16 @@
             this.btnInhabilitarHV.TabIndex = 7;
             this.btnInhabilitarHV.Text = "Inhabilitar";
             // 
-            // dgvHerramienta
+            // dgvMaquinaria
             // 
-            this.dgvHerramienta.AllowUserToAddRows = false;
-            this.dgvHerramienta.AllowUserToDeleteRows = false;
-            this.dgvHerramienta.Location = new System.Drawing.Point(12, 42);
-            this.dgvHerramienta.Name = "dgvHerramienta";
-            this.dgvHerramienta.ReadOnly = true;
-            this.dgvHerramienta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHerramienta.Size = new System.Drawing.Size(645, 220);
-            this.dgvHerramienta.TabIndex = 10;
+            this.dgvMaquinaria.AllowUserToAddRows = false;
+            this.dgvMaquinaria.AllowUserToDeleteRows = false;
+            this.dgvMaquinaria.Location = new System.Drawing.Point(12, 42);
+            this.dgvMaquinaria.Name = "dgvMaquinaria";
+            this.dgvMaquinaria.ReadOnly = true;
+            this.dgvMaquinaria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvMaquinaria.Size = new System.Drawing.Size(645, 220);
+            this.dgvMaquinaria.TabIndex = 10;
             // 
             // label1
             // 
@@ -190,13 +192,13 @@
             this.Controls.Add(this.btnBuscarPorId);
             this.Controls.Add(this.txtBuscaPorId);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dgvHerramienta);
+            this.Controls.Add(this.dgvMaquinaria);
             this.Controls.Add(this.gbHV);
             this.Name = "MantenedorMaquinaria";
             this.Text = "Maquinaria";
             this.gbHV.ResumeLayout(false);
             this.gbHV.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvHerramienta)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvMaquinaria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -214,7 +216,7 @@
         private System.Windows.Forms.Button btnRegistrarHV;
         private System.Windows.Forms.Button btnModificarHV;
         private System.Windows.Forms.Button btnInhabilitarHV;
-        private System.Windows.Forms.DataGridView dgvHerramienta;
+        private System.Windows.Forms.DataGridView dgvMaquinaria;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtBuscaPorId;
         private System.Windows.Forms.Button btnBuscarPorId;

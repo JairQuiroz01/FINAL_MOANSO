@@ -14,9 +14,9 @@ namespace CapaDatos
         private static readonly DatProcesoF instancia = new DatProcesoF();
         public static DatProcesoF Instancia => instancia;
 
-        private readonly string connectionString = "TU_CONEXION";
+        private readonly string connectionString = "JUNITHOR";
 
-        public void Registrar(EntProcesoF p)
+        public void RegistrarProcesoFisico(EntProcesoF p)
         {
             using (var cn = new SqlConnection(connectionString))
             using (var cmd = new SqlCommand("RegistrarProcesoFisico", cn))
@@ -30,7 +30,7 @@ namespace CapaDatos
             }
         }
 
-        public void Modificar(EntProcesoF p)
+        public void ModificarProcesoFisico(EntProcesoF p)
         {
             using (var cn = new SqlConnection(connectionString))
             using (var cmd = new SqlCommand("ModificarProcesoFisico", cn))
@@ -45,7 +45,7 @@ namespace CapaDatos
             }
         }
 
-        public void Inhabilitar(int id)
+        public void InhabilitarProcesoFisico(int id)
         {
             using (var cn = new SqlConnection(connectionString))
             using (var cmd = new SqlCommand("InhabilitarProcesoFisico", cn))
@@ -57,7 +57,7 @@ namespace CapaDatos
             }
         }
 
-        public EntProcesoF BuscarPorID(int id)
+        public EntProcesoF BuscarProcesoFisicoPorID(int id)
         {
             using (var cn = new SqlConnection(connectionString))
             using (var cmd = new SqlCommand("BuscarProcesoFisicoPorID", cn))
@@ -82,7 +82,7 @@ namespace CapaDatos
             return null;
         }
 
-        public List<EntProcesoF> Listar()
+        public List<EntProcesoF> ListarProcesoFisico()
         {
             var lista = new List<EntProcesoF>();
             using (var cn = new SqlConnection(connectionString))

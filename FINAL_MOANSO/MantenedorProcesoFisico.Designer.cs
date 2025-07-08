@@ -39,7 +39,7 @@
             this.cbDuracion = new System.Windows.Forms.ComboBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtEstado_Herramienta = new System.Windows.Forms.TextBox();
+            this.txtEstadoMaquinaria = new System.Windows.Forms.TextBox();
             this.btnListaH = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,6 +51,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscarId = new System.Windows.Forms.TextBox();
+            this.txtProcesoFisico = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesoFisico)).BeginInit();
@@ -58,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtProcesoFisico);
             this.groupBox1.Controls.Add(this.btnListar);
             this.groupBox1.Controls.Add(this.cbLimpiar);
             this.groupBox1.Controls.Add(this.btnInhabilitar);
@@ -83,6 +85,7 @@
             this.btnListar.TabIndex = 40;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
+            this.btnListar.Click += new System.EventHandler(this.btnListar_Click);
             // 
             // cbLimpiar
             // 
@@ -93,6 +96,7 @@
             this.cbLimpiar.TabIndex = 34;
             this.cbLimpiar.Text = "Limpiar";
             this.cbLimpiar.UseVisualStyleBackColor = true;
+            this.cbLimpiar.Click += new System.EventHandler(this.cbLimpiar_Click);
             // 
             // btnInhabilitar
             // 
@@ -103,12 +107,13 @@
             this.btnInhabilitar.TabIndex = 39;
             this.btnInhabilitar.Text = "Inhabilitar";
             this.btnInhabilitar.UseVisualStyleBackColor = true;
+            this.btnInhabilitar.Click += new System.EventHandler(this.btnInhabilitar_Click);
             // 
             // chkEstado
             // 
             this.chkEstado.AutoSize = true;
             this.chkEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEstado.Location = new System.Drawing.Point(9, 81);
+            this.chkEstado.Location = new System.Drawing.Point(535, 81);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(79, 24);
             this.chkEstado.TabIndex = 32;
@@ -124,6 +129,7 @@
             this.btnModificar.TabIndex = 38;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // label3
             // 
@@ -167,7 +173,7 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.txtEstado_Herramienta);
+            this.groupBox2.Controls.Add(this.txtEstadoMaquinaria);
             this.groupBox2.Controls.Add(this.btnListaH);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label6);
@@ -181,12 +187,12 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Seleccion Maquinaria";
             // 
-            // txtEstado_Herramienta
+            // txtEstadoMaquinaria
             // 
-            this.txtEstado_Herramienta.Location = new System.Drawing.Point(109, 49);
-            this.txtEstado_Herramienta.Name = "txtEstado_Herramienta";
-            this.txtEstado_Herramienta.Size = new System.Drawing.Size(121, 20);
-            this.txtEstado_Herramienta.TabIndex = 39;
+            this.txtEstadoMaquinaria.Location = new System.Drawing.Point(109, 49);
+            this.txtEstadoMaquinaria.Name = "txtEstadoMaquinaria";
+            this.txtEstadoMaquinaria.Size = new System.Drawing.Size(121, 20);
+            this.txtEstadoMaquinaria.TabIndex = 39;
             // 
             // btnListaH
             // 
@@ -197,6 +203,7 @@
             this.btnListaH.TabIndex = 35;
             this.btnListaH.Text = "Lista Maquinaria";
             this.btnListaH.UseVisualStyleBackColor = true;
+            this.btnListaH.Click += new System.EventHandler(this.btnListaH_Click);
             // 
             // label7
             // 
@@ -230,7 +237,7 @@
             // 
             // txtHerramienta
             // 
-            this.txtHerramienta.Location = new System.Drawing.Point(109, 22);
+            this.txtHerramienta.Location = new System.Drawing.Point(109, 23);
             this.txtHerramienta.Multiline = true;
             this.txtHerramienta.Name = "txtHerramienta";
             this.txtHerramienta.Size = new System.Drawing.Size(121, 20);
@@ -265,6 +272,7 @@
             this.btnRegistrar.TabIndex = 39;
             this.btnRegistrar.Text = "Registrar";
             this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // btnBuscar
             // 
@@ -275,6 +283,7 @@
             this.btnBuscar.TabIndex = 40;
             this.btnBuscar.Text = "Buscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // label2
             // 
@@ -292,6 +301,14 @@
             this.txtBuscarId.Name = "txtBuscarId";
             this.txtBuscarId.Size = new System.Drawing.Size(30, 20);
             this.txtBuscarId.TabIndex = 42;
+            // 
+            // txtProcesoFisico
+            // 
+            this.txtProcesoFisico.Location = new System.Drawing.Point(67, 81);
+            this.txtProcesoFisico.Multiline = true;
+            this.txtProcesoFisico.Name = "txtProcesoFisico";
+            this.txtProcesoFisico.Size = new System.Drawing.Size(121, 20);
+            this.txtProcesoFisico.TabIndex = 40;
             // 
             // MantenedorProcesoFisico
             // 
@@ -330,7 +347,7 @@
         private System.Windows.Forms.ComboBox cbDuracion;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox txtEstado_Herramienta;
+        private System.Windows.Forms.TextBox txtEstadoMaquinaria;
         private System.Windows.Forms.Button btnListaH;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
@@ -342,5 +359,6 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBuscarId;
+        private System.Windows.Forms.TextBox txtProcesoFisico;
     }
 }
