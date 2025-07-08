@@ -44,6 +44,7 @@
     <Compile Include="logCategoriaProducto.cs" />
     <Compile Include="logCliente.cs" />
     <Compile Include="logMaquinaria.cs" />
+    <Compile Include="logProducto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
