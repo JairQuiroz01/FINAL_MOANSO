@@ -13,17 +13,16 @@ namespace CapaLogica
         private static readonly LogMaquinariaProcesoFisico _instancia = new LogMaquinariaProcesoFisico();
         public static LogMaquinariaProcesoFisico Instancia => _instancia;
 
-        private LogMaquinariaProcesoFisico() { }
-
         public void Vincular(int maquinariaID, int procesoFisicoID)
         {
             DatMaquinariaProcesoFisico.Instancia.Vincular(maquinariaID, procesoFisicoID);
         }
 
-        public List<EntMaquinariaProcesoFisico> Listar()
+        public List<EntMaquinariaProcesoFisico> ListarVinculos()
         {
             return DatMaquinariaProcesoFisico.Instancia.ListarVinculos();
         }
+
         public void EliminarVinculo(int maquinariaID, int procesoFisicoID)
         {
             DatMaquinariaProcesoFisico.Instancia.EliminarVinculo(maquinariaID, procesoFisicoID);

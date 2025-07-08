@@ -51,8 +51,6 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.txtBuscarId = new System.Windows.Forms.TextBox();
-            this.txtProcesoFisico = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProcesoFisico)).BeginInit();
@@ -60,8 +58,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.txtProcesoFisico);
             this.groupBox1.Controls.Add(this.btnListar);
             this.groupBox1.Controls.Add(this.cbLimpiar);
             this.groupBox1.Controls.Add(this.btnInhabilitar);
@@ -115,7 +111,7 @@
             // 
             this.chkEstado.AutoSize = true;
             this.chkEstado.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkEstado.Location = new System.Drawing.Point(535, 81);
+            this.chkEstado.Location = new System.Drawing.Point(9, 81);
             this.chkEstado.Name = "chkEstado";
             this.chkEstado.Size = new System.Drawing.Size(79, 24);
             this.chkEstado.TabIndex = 32;
@@ -304,24 +300,6 @@
             this.txtBuscarId.Size = new System.Drawing.Size(30, 20);
             this.txtBuscarId.TabIndex = 42;
             // 
-            // txtProcesoFisico
-            // 
-            this.txtProcesoFisico.Location = new System.Drawing.Point(113, 81);
-            this.txtProcesoFisico.Multiline = true;
-            this.txtProcesoFisico.Name = "txtProcesoFisico";
-            this.txtProcesoFisico.Size = new System.Drawing.Size(75, 20);
-            this.txtProcesoFisico.TabIndex = 40;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 85);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 16);
-            this.label4.TabIndex = 41;
-            this.label4.Text = "ProcesoFisicoID";
-            // 
             // MantenedorProcesoFisico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -371,7 +349,5 @@
         private System.Windows.Forms.Button btnBuscar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtBuscarId;
-        private System.Windows.Forms.TextBox txtProcesoFisico;
-        private System.Windows.Forms.Label label4;
     }
 }

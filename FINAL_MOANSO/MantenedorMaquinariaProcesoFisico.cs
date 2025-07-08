@@ -18,35 +18,38 @@ namespace FINAL_MOANSO
         {
             InitializeComponent();
         }
-        private void MantenedorVincularMaquinariaProcesoFisico_Load(object sender, EventArgs e)
+        private void MantenedorMaquinariaProcesoFisico_Load(object sender, EventArgs e)
         {
-            CargarListas();
+            CargarCombos();
             ListarVinculos();
         }
-        private void CargarListas()
+        private void CargarCombos()
         {
-            cmbMaquinariaID.DataSource = null;
-            cmbMaquinariaID.DisplayMember = "Nombre";
-            cmbMaquinariaID.ValueMember = "MaquinariaID";
-            cmbMaquinariaID.DataSource = LogMaquinaria.Instancia.ListarMaquinaria();
+            cmbMaquinaria.DataSource = LogMaquinaria.Instancia.ListarMaquinariaActiva();
+            cmbMaquinaria.DisplayMember = "Nombre";
+            cmbMaquinaria.ValueMember = "MaquinariaID";
 
-            cmbProcesoFisicoID.DataSource = null;
-            cmbProcesoFisicoID.DisplayMember = "Nombre";
-            cmbProcesoFisicoID.ValueMember = "ProcesofisicoID";
-            cmbProcesoFisicoID.DataSource = LogProcesoF.Instancia.ListarProcesosActivos();
+            cmbProcesoFisico.DataSource = LogProcesoF.Instancia.ListarProcesosActivos();
+            cmbProcesoFisico.DisplayMember = "Nombre";
+            cmbProcesoFisico.ValueMember = "ProcesofisicoID";
         }
 
 
         private void btnVincular_Click(object sender, EventArgs e)
         {
+            if (cmbMaquinaria.SelectedItem == null || cmbProcesoFisico.SelectedItem == null)
+            {
+                MessageBox.Show("⚠️ Debes seleccionar maquinaria y proceso físico.");
+                return;
+            }
+
             try
             {
-                int maquinariaID = Convert.ToInt32(cmbMaquinariaID.SelectedValue);
-                int procesoFisicoID = Convert.ToInt32(cmbProcesoFisicoID.SelectedValue);
+                int maquinariaID = (int)cmbMaquinaria.SelectedValue;
+                int procesoFisicoID = (int)cmbProcesoFisico.SelectedValue;
 
                 LogMaquinariaProcesoFisico.Instancia.Vincular(maquinariaID, procesoFisicoID);
                 MessageBox.Show("✔️ Vinculado correctamente.");
-
                 ListarVinculos();
             }
             catch (Exception ex)
@@ -57,45 +60,31 @@ namespace FINAL_MOANSO
         private void ListarVinculos()
         {
             dgvVinculos.DataSource = null;
-            dgvVinculos.DataSource = LogMaquinariaProcesoFisico.Instancia.Listar();
+            dgvVinculos.DataSource = LogMaquinariaProcesoFisico.Instancia.ListarVinculos();
         }
+
 
         private void btnEliminarVinculo_Click(object sender, EventArgs e)
         {
+            if (dgvVinculos.CurrentRow == null)
+            {
+                MessageBox.Show("⚠️ Selecciona un vínculo para eliminar.");
+                return;
+            }
+
             try
             {
-                if (dgvVinculos.CurrentRow != null)
-                {
-                    int maquinariaID = Convert.ToInt32(dgvVinculos.CurrentRow.Cells["MaquinariaID"].Value);
-                    int procesoFisicoID = Convert.ToInt32(dgvVinculos.CurrentRow.Cells["ProcesofisicoID"].Value);
+                int maquinariaID = (int)dgvVinculos.CurrentRow.Cells["MaquinariaID"].Value;
+                int procesoFisicoID = (int)dgvVinculos.CurrentRow.Cells["ProcesofisicoID"].Value;
 
-                    LogMaquinariaProcesoFisico.Instancia.EliminarVinculo(maquinariaID, procesoFisicoID);
-                    MessageBox.Show("✔️ Vínculo eliminado.");
-
-                    ListarVinculos();
-                }
-                else
-                {
-                    MessageBox.Show("⚠️ Selecciona un vínculo en la tabla.");
-                }
+                LogMaquinariaProcesoFisico.Instancia.EliminarVinculo(maquinariaID, procesoFisicoID);
+                MessageBox.Show("✔️ Vínculo eliminado.");
+                ListarVinculos();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"⚠️ Error al eliminar: {ex.Message}");
             }
-        }
-        private void MantenedorMaquinariaProcesoFisico_Load(object sender, EventArgs e)
-        {
-            // Asumiendo que tienes cargadores para estos ComboBox
-            cmbMaquinariaID.DataSource = LogMaquinaria.Instancia.ListarMaquinaria();
-            cmbMaquinariaID.DisplayMember = "Nombre";
-            cmbMaquinariaID.ValueMember = "MaquinariaID";
-
-            cmbProcesoFisicoID.DataSource = LogProcesoF.Instancia.ListarProcesosActivos();
-            cmbProcesoFisicoID.DisplayMember = "Nombre";
-            cmbProcesoFisicoID.ValueMember = "ProcesofisicoID";
-
-            ListarVinculos();
         }
     }
 }

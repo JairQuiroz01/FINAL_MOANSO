@@ -14,7 +14,8 @@ namespace CapaDatos
         private static readonly DatProcesoF instancia = new DatProcesoF();
         public static DatProcesoF Instancia => instancia;
 
-        private readonly string connectionString = "JUNITHOR";
+        private string connectionString = "Data Source=DESKTOP-7GTF2SO.;Initial Catalog=BD_SISTEMA_VINERIA_AR_1;Integrated Security=True;";
+
 
         public void RegistrarProcesoFisico(EntProcesoF p)
         {
@@ -111,7 +112,7 @@ namespace CapaDatos
             var lista = new List<EntProcesoF>();
             using (SqlConnection cn = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("SELECT ProcesofisicoID, Nombre FROM Procesofisico WHERE EstadoProcesoFisico = 1", cn);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM Procesofisico WHERE EstadoProcesoFisico = 1", cn);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
@@ -119,7 +120,9 @@ namespace CapaDatos
                     lista.Add(new EntProcesoF
                     {
                         ProcesofisicoID = (int)dr["ProcesofisicoID"],
-                        Nombre = dr["Nombre"].ToString()
+                        Nombre = dr["Nombre"].ToString(),
+                        Duracion = dr["Duracion"].ToString(),
+                        EstadoProcesoFisico = (bool)dr["EstadoProcesoFisico"]
                     });
                 }
             }

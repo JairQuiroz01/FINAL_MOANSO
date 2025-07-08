@@ -88,5 +88,87 @@ namespace FINAL_MOANSO
             }
         }
 
+        private void btnBuscarPorId_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                dgvMaquinaria.DataSource = null; // Limpiamos antes de mostrar resultado
+
+                if (!int.TryParse(txtBuscaPorId.Text, out int id))
+                {
+                    MessageBox.Show("⚠️ Debes ingresar un ID válido (número entero).");
+                    return;
+                }
+
+                var herramienta = LogMaquinaria.Instancia.BuscarMaquinariaPorID(id);
+
+                if (herramienta != null)
+                {
+                    // Mostrar en campos
+                    txtNombre_H.Text = herramienta.Nombre;
+                    txtMarca_H.Text = herramienta.Marca;
+                    chkEstado.Checked = herramienta.EstadoMaquinaria;
+
+                    // Mostrar en tabla
+                    dgvMaquinaria.DataSource = new List<EntMaquinaria> { herramienta };
+
+                    MessageBox.Show("✔️ Maquinaria encontrada.");
+                }
+                else
+                {
+                    MessageBox.Show("❌ ID no registrado.");
+                    LimpiarCampos();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"⚠️ Error al buscar: {ex.Message}");
+            }
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Listar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"⚠️ Error al listar: {ex.Message}");
+            }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (dgvMaquinaria.CurrentRow != null && dgvMaquinaria.CurrentRow.Index >= 0)
+            {
+                MaquinariaSeleccionada = dgvMaquinaria.CurrentRow;
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("⚠️ Por favor selecciona una Maquinaria de la tabla.");
+            }
+        }
+
+        private void dgvMaquinaria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex >= 0) // Asegura que no se haga doble clic en el header
+                {
+                    DataGridViewRow fila = dgvMaquinaria.Rows[e.RowIndex];
+
+                    txtNombre_H.Text = fila.Cells["Nombre"].Value.ToString();
+                    txtMarca_H.Text = fila.Cells["Marca"].Value.ToString();
+                    chkEstado.Checked = Convert.ToBoolean(fila.Cells["EstadoMaquinaria"].Value);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"⚠️ Error al obtener datos: {ex.Message}");
+            }
+        }
     }
 }
