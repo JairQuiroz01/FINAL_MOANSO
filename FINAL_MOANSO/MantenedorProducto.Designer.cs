@@ -69,7 +69,6 @@
             this.btnAgregar.TabIndex = 1;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = true;
-
             // 
             // btnModificar
             // 
@@ -79,7 +78,6 @@
             this.btnModificar.TabIndex = 2;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
-
             // 
             // btnEliminar
             // 
@@ -89,7 +87,6 @@
             this.btnEliminar.TabIndex = 3;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.UseVisualStyleBackColor = true;
-
             // 
             // btnCancelar
             // 
@@ -99,7 +96,6 @@
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
-
             // 
             // groupBox1
             // 
@@ -201,7 +197,6 @@
             this.btnBuscar.TabIndex = 2;
             this.btnBuscar.Text = "BUSCAR";
             this.btnBuscar.UseVisualStyleBackColor = true;
-
             // 
             // txtBuscar
             // 
@@ -230,7 +225,7 @@
             this.Controls.Add(this.dgvProductos);
             this.Name = "MantenedorProducto";
             this.Text = "Agregar";
-
+            this.Load += new System.EventHandler(this.MantenedorProducto_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

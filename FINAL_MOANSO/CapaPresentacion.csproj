@@ -99,6 +99,9 @@
     <EmbeddedResource Include="MantenedorProcesoFisico.resx">
       <DependentUpon>MantenedorProcesoFisico.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MantenedorProducto.resx">
+      <DependentUpon>MantenedorProducto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MantenedorUnidadMedida.resx">
       <DependentUpon>MantenedorUnidadMedida.cs</DependentUpon>
     </EmbeddedResource>

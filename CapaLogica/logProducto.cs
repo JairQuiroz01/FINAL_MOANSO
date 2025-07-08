@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using CapaDatos;
 using CapaEntidad;
+using CapaLogica;
 
 
 namespace CapaLogica
@@ -42,6 +43,19 @@ namespace CapaLogica
         public List<entProducto> Buscar(string filtro)
         {
             return datProducto.Instancia.Buscar(filtro);
+        }
+        private void CargarCombos()
+        {
+            // CATEGORÍA
+            cbCategoria.DataSource = logCategoriaProducto.Instancia.Listar();
+            cbCategoria.DisplayMember = "Nombre";
+            cbCategoria.ValueMember = "CategoriaproductoID";
+
+
+            // UNIDAD DE MEDIDA
+            cbUnidadMedida.DataSource = logUnidadMedida.Instancia.Listar();
+            cbUnidadMedida.DisplayMember = "Nombre";
+            cbUnidadMedida.ValueMember = "UnidadmedidaID";
         }
     }
 }

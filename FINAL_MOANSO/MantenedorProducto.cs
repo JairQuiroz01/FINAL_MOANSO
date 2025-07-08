@@ -16,5 +16,10 @@ namespace FINAL_MOANSO
         {
             InitializeComponent();
         }
+
+        private void MantenedorProducto_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
