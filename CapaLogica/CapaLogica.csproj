@@ -45,6 +45,7 @@
     <Compile Include="logCliente.cs" />
     <Compile Include="LogMaquinaria.cs" />
     <Compile Include="LogMaquinariaProcesoFisico.cs" />
+    <Compile Include="logPresentacionProducto.cs" />
     <Compile Include="LogProcesoF.cs" />
     <Compile Include="logProducto.cs" />
     <Compile Include="logUnidadMedida.cs" />
